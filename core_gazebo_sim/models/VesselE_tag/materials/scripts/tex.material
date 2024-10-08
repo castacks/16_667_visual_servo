@@ -1,0 +1,45 @@
+material VesselE_tag/tex
+{
+  receive_shadows off
+  technique
+  {
+    pass
+    {
+      texture_unit
+      {
+        texture Boat05_Albedo.jpg
+      }
+    }
+  }
+}
+
+material VesselE_tag/tex
+{
+  receive_shadows off
+  technique
+  {
+    pass
+    {
+      texture_unit
+      {
+        texture Boat05_Roughness.jpg
+      }
+    }
+  }
+}
+
+
+material VesselE_tag/tex
+{
+  receive_shadows off
+  technique
+  {
+    pass
+    {
+      texture_unit
+      {
+        texture Boat05_Normal.jpg
+      }
+    }
+  }
+}

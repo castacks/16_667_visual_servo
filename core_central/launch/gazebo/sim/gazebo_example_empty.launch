@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<launch>
+  
+  <!-- launch gazebo -->
+  <include file="$(find core_central)/launch/common/gazebo_world.launch" />
+
+  <!-- create a gazebo drone -->
+  <include file="$(find core_central)/launch/gazebo/sim/gazebo_sim_drone.launch" pass_all_args="true">
+    <arg name="robot_name" default="uav1" />
+    <arg name="drone_interface" default="GazeboInterface" />
+    <arg name="map_representation" default="PointCloudMapRepresentation" />
+    
+    <arg name="x" value="0" />
+    <arg name="y" value="0" />
+    <arg name="z" value="0.2" />
+  </include>
+  
+</launch>

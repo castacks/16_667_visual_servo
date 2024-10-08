@@ -1,0 +1,22 @@
+<launch>
+  
+  <arg name="robot_name" default="uav1" />
+  
+  <group ns="$(arg robot_name)">
+    <!-- spawn a drone -->
+    <include file="$(find core_central)/launch/gazebo/sim/gazebo_spawn_drone.launch" pass_all_args="true"/>
+    
+    <!-- run state estimation -->
+    <include file="$(find core_central)/launch/gazebo/sim/gazebo_sim_state_estimation.launch" pass_all_args="true"/>
+
+    <!-- run control -->
+    <include file="$(find core_central)/launch/gazebo/sim/gazebo_sim_control.launch" pass_all_args="true" />
+
+    <!-- autonomy -->
+    <include file="$(find core_central)/launch/common/autonomy.launch" pass_all_args="true" />
+
+    <!-- visualization -->
+    <include file="$(find core_central)/launch/common/visualization.launch" pass_all_args="true"/>
+  </group>
+  
+</launch>

@@ -1,0 +1,13 @@
+session_name: Full System
+windows:
+  - window_name: Base Station
+    panes:
+      - shell_command:
+        - export ROS_MASTER_URI=http://manifold2:11311
+        - cd ~/core_autonomy_stack/dji_ws
+        - source devel/setup.bash
+        - ROS_NAMESPACE=uav1 mon launch core_central visualization.launch
+  - window_name: Base Station
+    panes:
+      - shell_command:
+        - ssh -t dji@manifold2 "sh -c 'tmuxp load ~/core_ws/src/core_central/scripts/dji.yaml' "

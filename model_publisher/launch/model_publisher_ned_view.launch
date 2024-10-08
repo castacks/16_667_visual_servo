@@ -1,0 +1,24 @@
+<launch>
+
+  <node name="model_publisher" pkg="model_publisher" type="model_publisher.py">
+    <param name="model_filename" value="$(find model_publisher)/meshes/hku_m100.dae" />
+
+    <!-- The model will be published at 0, 0, 0 in this frame with 0 rotation. -->
+    <param name="frame_id" value="base_link_view" />
+
+    <!-- model color -->
+    <param name="red" value="1" />
+    <param name="green" value="1" />
+    <param name="blue" value="1" />
+    <param name="alpha" value="1" />
+
+    <!-- model scale -->
+    <param name="scale_x" value="1" />
+    <param name="scale_y" value="1" />
+    <param name="scale_z" value="1" />
+  </node>
+
+  <!-- If robot is in NED frame, flip robot model around roll. -->
+  <node pkg="tf" type="static_transform_publisher" name="base_to_view" args="0 0 0 0 0 3.14 /base_link /base_link_view 5"/>
+  
+</launch>

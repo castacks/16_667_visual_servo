@@ -1,0 +1,16 @@
+trajectories:
+  
+  # switch topic publish, hightly coupled with wrench controller, need improve
+  - SwitchPanel:
+      control_mode:
+        switchY: {Position Control: 0, Visual Servo: 1}
+        switchX: {PBVS : 0, IBVS : 1}
+  - Point:
+      attributes:
+        - frame_id
+        - velocity
+        - max_acceleration
+        - x
+        - y
+        - height
+  

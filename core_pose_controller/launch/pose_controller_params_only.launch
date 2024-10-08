@@ -1,0 +1,16 @@
+<launch>
+  
+    <!-- This file is only used for debugging purposes and does not run the node itself -->
+  
+  <!-- <remap from="odometry" to="/mavros/local_position/odom" /> -->
+
+  <group ns="pose_controller">
+
+    <param name="execute_target" value="50." />
+
+    <rosparam file="$(find core_pose_controller)/config/pose_px4_params.yaml" command="load" />
+    <rosparam file="$(find core_pose_controller)/config/pose_px4_gazebo_params.yaml" command="load" />
+
+  </group>
+
+</launch>

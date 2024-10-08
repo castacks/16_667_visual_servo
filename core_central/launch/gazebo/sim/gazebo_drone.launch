@@ -1,0 +1,88 @@
+<launch>
+  
+  <arg name="robot_name" default="uav1" />
+  <arg name="drone_interface" default="GazeboInterface" />
+  <arg name="map_representation" default="PointCloudMapRepresentation" />
+
+  <arg name="x" default="0" />
+  <arg name="y" default="0" />
+  <arg name="z" default="0.5" />
+  
+  <!-- static transforms -->
+  <node name="world_to_$(arg robot_name)_map" pkg="tf" type="static_transform_publisher" args="0 0 0 0 0 0 /world $(arg robot_name)/map 10"/>
+  
+  <param name="/$(arg robot_name)/robot_description" command="$(find xacro)/xacro.py '$(find core_gazebo_sim)/urdf/uav.xacro' robot_name:=$(arg robot_name)" />
+  
+  <group ns="$(arg robot_name)">
+    <!-- spawn simulated drone -->
+    <node name="spawn_drone" pkg="gazebo_ros" type="spawn_model" args="-param /$(arg robot_name)/robot_description -urdf -model $(arg robot_name) -x $(arg x) -y $(arg y) -z $(arg z)"/>
+    <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher">
+      <param name="tf_prefix" value="/$(arg robot_name)" />
+    </node>
+    
+    <!-- behavior -->
+    <node name="behavior_tree" pkg="behavior_tree" type="behavior_tree_node.py">
+      <param name="config" type="string" value="$(find core_gazebo_sim)/config/drone.tree" />
+    </node>
+    <include file="$(find core_behavior_executive)/launch/behavior_executive_behavior_tree.launch" />
+    <include file="$(find core_drone_interface)/launch/drone_interface_node.launch" pass_all_args="true" />
+    
+    <!-- state estimation -->
+    <node name="odometry_transform" pkg="core_odometry_transform" type="odometry_transform">
+      <param name="execute_target" value="1" />
+      
+      <param name="convert_odometry_to_transform" type="bool" value="true" />
+      <param name="convert_odometry_to_stabilized_transform" type="bool" value="true" />
+      <param name="transform_odometry_to_new_frame" type="bool" value="true" />
+      <param name="transform_name" type="string" value="$(arg robot_name)/base_link" />
+      <param name="new_frame_id" type="string" value="$(arg robot_name)/map" />
+      <param name="new_child_frame_id" type="string" value="$(arg robot_name)/map" />
+      
+      <remap from="input_odometry" to="state_estimate" />
+    </node>
+    
+    <!-- control -->
+    <remap from="velocity_setpoint" to="velocity_command" />
+    <include file="$(find core_pose_controller)/launch/pose_controller.launch" pass_all_args="true" />
+    <include file="$(find core_trajectory_controller)/launch/trajectory_controller.launch" pass_all_args="true" />
+    
+    <!-- planning -->
+    <include file="$(find core_takeoff_landing_planner)/launch/takeoff_landing_planner.launch" />
+    <node name="global_plan_fixed_trajectory_generator" pkg="core_trajectory_library" type="fixed_trajectory_generator.py">
+      <remap from="fixed_trajectory" to="global_plan_fixed_trajectory" />
+      <remap from="trajectory_track" to="global_plan" />
+    </node>
+    <node name="fixed_trajectory_generator" pkg="core_trajectory_library" type="fixed_trajectory_generator.py">
+    </node>
+    <include file="$(find core_local_planner)/launch/local_planner.launch" pass_all_args="true" />
+
+    <!-- perception -->
+    <node name="front_stereo" pkg="stereo_image_proc" type="stereo_image_proc" ns="front_stereo" />
+    <node pkg="disparity_expansion" type="disparity_conv" name="disparity_conv"/>
+    <node pkg="disparity_expansion" type="disparity_expansion_clean" name="disparity_expansion">
+      <param name="lut_max_disparity" type="int" value="180" />
+      <param name="robot_radius" type="double" value="1.0" />
+      <param name="bg_multiplier" type="double" value="2.0" />
+      <param name="sensor_pixel_error" type="double" value="0.5" />
+      <param name="padding" type="double" value="-1" />
+      
+      <remap from="/nerian_sp1/right/camera_info" to="front_stereo/right/camera_info" />
+      <remap from="/nerian_sp1/disparity_map_32F" to="front_stereo/disparity" />
+      
+      <remap from="/ceye/left/expanded_disparity_fg" to="front_stereo/left/disparity_expanded_fg" />
+      <remap from="/ceye/left/expanded_disparity_bg" to="front_stereo/left/disparity_expanded_bg" />
+    </node>
+    
+    <!-- visualization -->
+    <node name="rviz" pkg="rviz" type="rviz" args="-d $(find core_gazebo_sim)/rviz/gazebo_test.rviz">
+      <remap from="/move_base_simple/goal" to="custom_waypoint" />
+    </node>
+    <node name="rqt" pkg="rqt_gui" type="rqt_gui" args="--perspective-file $(find core_gazebo_sim)/core.perspective" />
+    <include file="$(find model_publisher)/launch/model_publisher.launch" ns="drone">
+      <arg name="model_filename" value="$(find core_gazebo_sim)/meshes/hex_mesh.dae" />
+      <arg name="frame_id" value="$(arg robot_name)/base_link" />
+    </include>
+  </group>
+  
+  
+</launch>

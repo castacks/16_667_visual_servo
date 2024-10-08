@@ -1,0 +1,5 @@
+<launch>
+  <node name="core_behavior_executive" pkg="core_behavior_executive" type="behavior_executive_behavior_tree" output="screen">
+    <param name="execute_target" type="double" value="10." />
+  </node>
+</launch>

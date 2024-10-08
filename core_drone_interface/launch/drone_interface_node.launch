@@ -1,0 +1,10 @@
+<launch>
+  
+  <arg name="drone_interface" default="DroneInterface" />
+  
+  <node name="drone_interface" pkg="core_drone_interface" type="drone_interface_node" output="screen">
+    <param name="execute_target" type="double" value="20." />
+
+    <param name="drone_interface" value="$(arg drone_interface)" />
+  </node>
+</launch>

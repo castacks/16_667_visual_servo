@@ -1,0 +1,6 @@
+<launch>
+  
+  <remap from="velocity_setpoint" to="velocity_command" />
+  <include file="$(find core_pose_controller)/launch/pose_controller.launch" pass_all_args="true" />
+
+</launch>

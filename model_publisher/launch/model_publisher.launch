@@ -1,0 +1,36 @@
+<launch>
+
+  <arg name="model_filename" default="$(find model_publisher)/meshes/hku_m100.dae" />
+  <arg name="frame_id" default="world" />
+  <arg name="red" default="1" />
+  <arg name="green" default="1" />
+  <arg name="blue" default="1" />
+  <arg name="alpha" default="1" />
+  <arg name="scale_x" default="1" />
+  <arg name="scale_y" default="1" />
+  <arg name="scale_z" default="1" />
+  <arg name="mesh_use_embedded_materials" default="false" />
+  
+  <node name="model_publisher" pkg="model_publisher" type="model_publisher.py">
+    <param name="model_filename" value="$(arg model_filename)" />
+
+    <!-- The model will be published at 0, 0, 0 in this frame with 0 rotation. -->
+    <param name="frame_id" value="$(arg frame_id)" />
+
+    <!-- model color -->
+    <param name="red" value="$(arg red)" />
+    <param name="green" value="$(arg green)" />
+    <param name="blue" value="$(arg blue)" />
+    <param name="alpha" value="$(arg alpha)" />
+
+    <!-- model scale -->
+    <param name="scale_x" value="$(arg scale_x)" />
+    <param name="scale_y" value="$(arg scale_y)" />
+    <param name="scale_z" value="$(arg scale_z)" />
+
+    <param name="mesh_use_embedded_materials" type="bool" value="$(arg mesh_use_embedded_materials)" />
+  </node>
+
+  <!-- <node pkg="tf" type="static_transform_publisher" name="base_to_view" args="0 0 0 0 0 3.14 /base_link /base_link_view 5"/> -->
+  
+</launch>

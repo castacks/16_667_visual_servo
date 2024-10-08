@@ -1,0 +1,13 @@
+<launch>
+
+  <arg name="robot_name" default="tiltedhex" />
+  
+  <!-- visualization -->
+  <!-- <node name="rviz" pkg="rviz" type="rviz" args="-d $(find core_gazebo_sim)/rviz/gazebo_test.rviz">
+    <remap from="/move_base_simple/goal" to="custom_waypoint" />
+  </node> -->
+  
+  <node name="rqt" pkg="rqt_gui" type="rqt_gui" args="--perspective-file $(find core_gazebo_sim)/core.perspective" />
+  
+
+</launch>

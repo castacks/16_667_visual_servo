@@ -1,0 +1,44 @@
+<?xml version='1.0' ?>
+<sdf version="1.6">
+  <model name="vessel_a">
+    <static>false</static>
+    <link name="link">
+      <enable_wind>true</enable_wind>
+      <kinematic>true</kinematic>
+      <inertial>
+        <mass>1000.0</mass>
+        <inertia>
+          <ixx>640.83</ixx>
+          <ixy>0.0</ixy>
+          <ixz>0.0</ixz>
+          <iyy>4203.33</iyy>
+          <iyz>0.0</iyz>
+          <izz>4604.17</izz>
+        </inertia>
+      </inertial>
+      <visual name="visual">
+        <geometry>
+          <mesh>
+            <uri>model://VesselA/meshes/Boat01.dae</uri>
+          </mesh>
+        </geometry>
+        <material>
+          <diffuse>1.0 1.0 1.0</diffuse>
+          <specular>1.0 1.0 1.0</specular>
+          <script>
+            <uri>model://VesselA/materials/scripts</uri>
+            <uri>model://VesselA/materials/textures</uri>
+            <name>VesselA/tex</name>
+          </script>
+        </material>
+      </visual>
+      <collision name="collision">
+        <geometry>
+          <mesh>
+            <uri>model://VesselA/meshes/Boat01.dae</uri>
+          </mesh>
+        </geometry>
+      </collision>
+    </link>
+  </model>
+</sdf>

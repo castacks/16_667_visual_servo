@@ -1,0 +1,192 @@
+- git:
+    local-name: base_main_class
+    uri: git@bitbucket.org:castacks/base_main_class.git
+    version: aerial-manipulation
+- git:
+    local-name: behavior_tree_msgs
+    uri: git@bitbucket.org:castacks/behavior_tree_msgs.git
+    version: master
+- git:
+    local-name: core_behavior_executive
+    uri: git@bitbucket.org:castacks/core_behavior_executive.git
+    version: master
+- git:
+    local-name: core_central
+    uri: git@bitbucket.org:castacks/core_central.git
+    version: champ_control-noetic
+- git:
+    local-name: core_drone_interface
+    uri: git@bitbucket.org:castacks/core_drone_interface.git
+    version: visual-servo-noetic
+- git:
+    local-name: core_gazebo_interface
+    uri: git@bitbucket.org:castacks/core_gazebo_interface.git
+- git:
+    local-name: core_gazebo_sim
+    uri: git@bitbucket.org:castacks/core_gazebo_sim.git
+    version: champ_control_noetic
+- git:
+    local-name: core_local_planner
+    uri: git@bitbucket.org:castacks/core_local_planner.git
+- git:
+    local-name: core_map_representation_interface
+    uri: git@bitbucket.org:castacks/core_map_representation_interface.git
+- git:
+    local-name: core_odometry_transform
+    uri: git@bitbucket.org:castacks/core_odometry_transform.git
+- git:
+    local-name: core_pid_controller
+    uri: git@bitbucket.org:castacks/core_pid_controller.git
+    version: visual-servo
+- git:
+    local-name: core_pointcloud_map_representation
+    uri: git@bitbucket.org:castacks/core_pointcloud_map_representation.git
+- git:
+    local-name: core_pose_controller
+    uri: git@bitbucket.org:castacks/core_pose_controller.git
+    version: visual-servo-noetic
+- git:
+    local-name: core_takeoff_landing_planner
+    uri: git@bitbucket.org:castacks/core_takeoff_landing_planner.git
+- git:
+    local-name: core_trajectory_controller
+    uri: git@bitbucket.org:castacks/core_trajectory_controller.git
+- git:
+    local-name: core_trajectory_msgs
+    uri: git@bitbucket.org:castacks/core_trajectory_msgs.git
+- git:
+    local-name: core_trajectory_library
+    uri: git@bitbucket.org:castacks/core_trajectory_library.git
+    version: champ_control_noetic
+- git:
+    local-name: core_velocity_controller
+    uri: git@bitbucket.org:castacks/core_velocity_controller.git
+    version: visual_servo
+- git:
+    local-name: model_publisher
+    uri: git@bitbucket.org:castacks/model_publisher.git
+    version: aerial-manipulation_noetic
+- git:
+    local-name: rqt_behavior_tree_command
+    uri: git@bitbucket.org:castacks/rqt_behavior_tree_command.git
+    version: aerial-manipulation_noetic
+- git:
+    local-name: tflib
+    uri: git@bitbucket.org:castacks/tflib.git
+- git:
+    local-name: tictoc_profiler
+    uri: git@bitbucket.org:castacks/tictoc_profiler.git
+- git:
+    local-name: velodyne_simulator
+    uri: git@bitbucket.org:castacks/velodyne_simulator.git
+- git:
+    local-name: behavior_tree
+    uri: git@bitbucket.org:castacks/behavior_tree.git
+    version: aerial-manipulation_noetic
+- git:
+    local-name: mavlink
+    uri: https://github.com/mavlink/mavlink-gbp-release.git
+    version: 9cd1f5b551134ee08137a84ec7dc01f24f6432bf
+- git:
+    local-name: mavros
+    uri: https://github.com/mavlink/mavros.git
+    version: ae0fdb75ba3de6368da31461622222ad743f5769
+- git:
+    local-name: core_px4_interface
+    uri: git@bitbucket.org:castacks/core_px4_interface.git
+    version: contact-inspection
+- git:
+    local-name: Firmware
+    uri: git@bitbucket.org:castacks/firmware_am_noetic.git
+    version: champ_control_noetic
+- git:
+    local-name: core_wrench_controller
+    uri: git@bitbucket.org:castacks/core_wrench_controller.git
+    version: visual-servo
+- git:
+    local-name: feature_extractor
+    uri: git@bitbucket.org:castacks/visual_feature_extractor.git
+    version: champ-visual-servo-circle
+- git:
+    local-name: vision_lines
+    uri: git@bitbucket.org:castacks/vision_lines.git
+    version: noetic
+- git:
+    local-name: mav_comm
+    uri: https://github.com/ethz-asl/mav_comm.git
+- git:
+    local-name: isaac_gazebo_interface
+    uri: git@bitbucket.org:castacks/isaac_gazebo_interface.git
+    version: master
+- git:
+    local-name: apriltag_ros
+    uri: git@bitbucket.org:castacks/apriltag_ros.git
+    version: master
+- git:
+    local-name: uuv_gazebo_worlds
+    uri: git@bitbucket.org:castacks/uuv_gazebo_worlds.git
+    version: master
+- git:
+    local-name: yolov5_ros
+    uri: git@bitbucket.org:castacks/yolov5_ros.git
+    version: noetic
+- git:
+    local-name: core_ompl
+    uri: git@bitbucket.org:castacks/core_ompl.git
+    version: planning_tutorial_2020
+- git:
+    local-name: core_planning_state_space
+    uri: git@bitbucket.org:castacks/core_planning_state_space.git
+    version: master
+- git:
+    local-name: core_planning_utils
+    uri: git@bitbucket.org:castacks/core_planning_utils.git
+    version: master
+- git:
+    local-name: cpu_monitor
+    uri: git@github.com:castacks/cpu_monitor.git
+    version: master
+- git:
+    local-name: detection_msgs
+    uri: https://github.com/mats-robotics/detection_msgs.git
+    version: main
+- git:
+    local-name: ipp_metrics
+    uri: git@github.com:castacks/ipp_metrics.git
+    version: develop
+- git:
+    local-name: math_utils
+    uri: git@bitbucket.org:castacks/math_utils.git
+    version: master
+- git:
+    local-name: mavros_waypoint_manager
+    uri: git@bitbucket.org:castacks/mavros_waypoint_manager.git
+    version: develop
+- git:
+    local-name: onr_ipp
+    uri: git@github.com:castacks/onr_ipp.git
+    version: develop
+- git:
+    local-name: planner_map_interfaces
+    uri: git@bitbucket.org:castacks/planner_map_interfaces.git
+    version: develop
+- git:
+    local-name: simple_ipp_sim
+    uri: git@github.com:castacks/simple_ipp_sim.git
+    version: develop
+- git:
+    local-name: simulated_perception
+    uri: git@github.com:castacks/simulated_perception.git
+    version: develop
+- git:
+    local-name: target_propagation
+    uri: git@github.com:castacks/target_propagation.git
+    version: develop
+- git:
+    local-name: trochoids
+    uri: git@bitbucket.org:castacks/trochoids.git
+    version: develop
+- git:
+    local-name: task_planner_champ
+    uri: git@bitbucket.org:castacks/task_planner_champ.git
+    version: master

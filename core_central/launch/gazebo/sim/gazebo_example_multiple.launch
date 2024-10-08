@@ -1,0 +1,28 @@
+<launch>
+  
+  <!-- gazebo simulation -->
+  <include file="$(find gazebo_ros)/launch/empty_world.launch">
+    <arg name="world_name" value="$(find core_gazebo_sim)/worlds/town.world"/>
+  </include>
+
+  <include file="$(find core_central)/launch/gazebo/sim/gazebo_sim_drone.launch">
+    <arg name="robot_name" value="uav1" />
+    <arg name="drone_interface" value="GazeboInterface" />
+    <arg name="map_representation" default="PointCloudMapRepresentation" />
+    
+    <arg name="x" value="0" />
+    <arg name="y" value="0" />
+    <arg name="z" value="0.2" />
+  </include>
+
+  <include file="$(find core_central)/launch/gazebo/sim/gazebo_sim_drone.launch">
+    <arg name="robot_name" value="uav2" />
+    <arg name="drone_interface" value="GazeboInterface" />
+    <arg name="map_representation" default="DisparityMapRepresentation" />
+    
+    <arg name="x" value="0" />
+    <arg name="y" value="3" />
+    <arg name="z" value="0.2" />
+  </include>
+  
+</launch>

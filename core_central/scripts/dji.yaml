@@ -1,0 +1,11 @@
+session_name: DJI
+windows:
+  - window_name: DJI main
+    panes:
+      - shell_command:
+        - roscore
+      - shell_command:
+        - ~/Onboard-SDK/utility/bin/armv8/64-bit/M210ConfigTool --usb-port /dev/ttyACM0 --config-file ~/Onboard-SDK/UserConfig.txt --usb-connected-flight on
+        - cd ~/core_ws
+        - source devel/setup.bash
+        - mon launch core_central dji_sim_drone.launch

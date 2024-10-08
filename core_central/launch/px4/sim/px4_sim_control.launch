@@ -1,0 +1,21 @@
+<launch>
+  
+  <!-- control -->
+  
+  <!-- <node name="line_extractor" pkg="feature_extractor" type="line_extractor.py" output="screen"/> -->
+  <!-- <remap from="/lines" to="/visual_measure" /> -->
+  <!-- <node name="fake_extractor" pkg="feature_extractor" type="fake_extractor.py" output="screen"/> -->
+  <!-- <include file="$(find vision_lines)/launch/lines_main.launch"/> -->
+  <!-- <include file="$(find vision_lines)/launch/lines_visualize.launch"/> -->
+
+
+
+  <remap from="roll_pitch_yawrate_thrust_setpoint" to="roll_pitch_yawrate_thrust_command" />
+  <include file="$(find core_pose_controller)/launch/pose_controller_gazebo.launch" pass_all_args="true" />
+  <!-- <include file="$(find core_wrench_controller)/launch/wrench_controller_gazebo.launch" pass_all_args="true" /> -->
+  <include file="$(find core_velocity_controller)/launch/velocity_controller_px4.launch" pass_all_args="true" />
+  <node pkg="visual_servo_landing" type="visual_servo.py" name="visual_servo" output="screen" />
+  <node pkg="tf" type="static_transform_publisher" name="base_link1_to_camera" args="0.0 0.0 -0.2 -1.5708 0 -1.5708  $(arg robot_name)/base_link $(arg robot_name)/camera  100" />
+
+  
+</launch>

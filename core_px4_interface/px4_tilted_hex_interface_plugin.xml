@@ -1,0 +1,5 @@
+<library path="lib/libpx4_tilted_hex_interface">
+  <class type="PX4TiltedHexInterface" base_class_type="DroneInterface">
+    <description>PX4 v1.10.0 for the tilted hex plugin.</description>
+  </class>
+</library>

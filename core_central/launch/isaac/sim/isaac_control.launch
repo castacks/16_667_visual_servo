@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<launch>
+
+  <!-- launch gazebo to isaac script -->
+  <include file="$(find core_central)/launch/isaac/sim/isaac_gazebo.launch">
+  </include>
+
+  <!-- create a px4 drone -->
+  <include file="$(find core_central)/launch/px4/sim/px4_champ.launch" pass_all_args="true">
+  </include>
+  
+  
+</launch>

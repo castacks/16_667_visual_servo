@@ -1,0 +1,22 @@
+<?xml version="1.0" ?>
+<robot name="vessel_e">
+  <link name="vessel_a__link">
+    <inertial>
+      <mass value="1500.0"/>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <inertia ixx="3625" ixy="0.0" ixz="0.0" iyy="25000" iyz="0.0" izz="27625"/>
+    </inertial>
+    <collision name="vessel_a__collision">
+      <origin xyz="0 0 0" rpy="0      0     -1.5708"/>
+      <geometry>
+        <mesh filename="package://ship_models/VesselE/meshes/Boat05.dae" scale="1.0 1.0 1.0"/>
+      </geometry>
+    </collision>
+    <visual name="vessel_a__visual">
+      <origin xyz="0 0 0" rpy="0      0     -1.5708"/>
+      <geometry>
+        <mesh filename="package://ship_models/VesselE/meshes/Boat05.dae" scale="1.0 1.0 1.0"/>
+      </geometry>
+    </visual>
+  </link>
+</robot>

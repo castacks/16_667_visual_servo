@@ -1,0 +1,15 @@
+<launch>
+  
+  <include file="$(find core_pose_controller)/launch/pose_controller_px4.launch" />
+
+  <group ns="pose_controller">
+
+    <rosparam file="$(find core_pose_controller)/config/pose_px4_gazebo_params.yaml" command="load" />
+
+    <!-- Add pose controller parameter overrides here (or modify the pose_px4_gazebo_params.yaml file) -->
+
+    <!-- End of overriden parameters -->
+
+  </group>
+
+</launch>

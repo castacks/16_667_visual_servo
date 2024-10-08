@@ -1,0 +1,60 @@
+<?xml version="1.0"?>
+<launch>
+
+  <arg name="robot_name" default="uav2" />
+
+  <!-- vehicle pose -->
+  <arg name="x" default="0"/>
+  <arg name="y" default="0"/>
+  <arg name="z" default="1"/>
+  <arg name="R" default="0"/>
+  <arg name="P" default="0"/>
+  <arg name="Y" default="0"/>
+  
+  <!-- vehcile model and config -->
+  <arg name="est" default="ekf2"/>
+  <arg name="vehicle" default="hexa_x_tilt"/>
+  <arg name="world" default="$(find px4)/Tools/sitl_gazebo//worlds/grass.world"/>
+  <!-- <arg name="sdf" default="$(find px4)/Tools/sitl_gazebo/models/$(arg vehicle)/$(arg vehicle).sdf"/> -->
+  <arg name="sdf" default="$(find core_gazebo_sim)/models/hexa_x_tilt_downward_camera/hexa_x_tilt.sdf"/>
+  <arg name="ID" default="0" />
+  <arg name="ID" default="0" />
+  <env name="PX4_SIM_MODEL" value="$(arg vehicle)" />
+  <env name="PX4_ESTIMATOR" value="$(arg est)" />
+  <arg name="mavlink_udp_port" default="$(eval 14560 + arg('ID'))"/>
+  <arg name="mavlink_tcp_port" default="$(eval 4560 + arg('ID'))"/>
+  
+  <!-- PX4 configs -->
+  <arg name="interactive" default="true"/>
+
+  <!--param command="$(arg cmd)" name="rotors_description"/-->
+  <param name="robot_description" textfile="$(find px4)/Tools/sitl_gazebo/models/$(arg vehicle)/$(arg vehicle).urdf" />
+  
+  <!-- PX4 SITL -->
+  <arg unless="$(arg interactive)" name="px4_command_arg1" value=""/>
+  <arg     if="$(arg interactive)" name="px4_command_arg1" value="-d"/>
+  <node name="sitl_$(arg ID)" pkg="px4" type="px4" output="screen"
+	args="$(find px4)/ROMFS/px4fmu_common -s etc/init.d-posix/rcS -i $(arg ID) $(arg px4_command_arg1)">
+  </node>
+  
+  <!-- spawn vehicle -->
+  <!--node name="$(arg vehicle)_$(arg ID)_spawn" output="screen" pkg="gazebo_ros" type="spawn_model"
+	args="-urdf -param rotors_description -model $(arg robot_name) -package_to_model -x $(arg x) -y $(arg y) -z $(arg z) -R $(arg R) -P $(arg P) -Y $(arg Y)"/-->
+  
+  <!-- gazebo model -->
+  <node name="$(anon vehicle_spawn)" pkg="gazebo_ros" type="spawn_model" output="screen" args="-sdf -file $(arg sdf) -model $(arg vehicle) -x $(arg x) -y $(arg y) -z $(arg z) -R $(arg R) -P $(arg P) -Y $(arg Y)"/>
+
+  <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher">
+    <param name="tf_prefix" value="/$(arg robot_name)" />
+  </node>
+
+  <!-- launch mavros -->
+  <arg name="mavros_input_udp_port" value="$(eval 14540 + arg('ID'))" />
+  <arg name="mavros_output_udp_port" value="$(eval 14580 + arg('ID'))" />
+  <include file="$(find mavros)/launch/px4.launch">
+    <arg name="fcu_url" value="udp://:$(arg mavros_input_udp_port)@localhost:$(arg mavros_output_udp_port)"/>
+    <arg name="gcs_url" value=""/>
+    <arg name="tgt_system" value="$(eval 1 + arg('ID'))"/>
+    <arg name="tgt_component" value="1"/>
+  </include>
+</launch>

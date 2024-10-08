@@ -1,0 +1,35 @@
+<?xml version="1.0"?>
+<launch>
+
+  <!-- launch gazebo -->
+  <include file="$(find core_central)/launch/common/gazebo_world.launch">
+    <arg name="set_px4_paths" value="true" />
+    <arg name="world" value="$(find core_gazebo_sim)/worlds/town.world"/>
+  </include>
+
+  <!-- create px4 drones -->
+  <include file="$(find core_central)/launch/px4/sim/px4_sim_drone.launch" pass_all_args="true">
+    <arg name="robot_name" value="uav1" />
+    <arg name="ID" value="0"/>
+    
+    <arg name="x" value="0" />
+    <arg name="y" value="0" />
+    <arg name="z" value="1" />
+    
+    <arg name="drone_interface" value="PX4NoTiltInterface" />
+    <arg name="map_representation" value="PointCloudMapRepresentation" />
+  </include>
+  
+  <include file="$(find core_central)/launch/px4/sim/px4_sim_drone.launch" pass_all_args="true">
+    <arg name="robot_name" value="uav2" />
+    <arg name="ID" value="1"/>
+    
+    <arg name="x" value="0" />
+    <arg name="y" value="3" />
+    <arg name="z" value="1" />
+    
+    <arg name="drone_interface" value="PX4NoTiltInterface" />
+    <arg name="map_representation" value="DisparityMapRepresentation" />
+  </include>
+  
+</launch>

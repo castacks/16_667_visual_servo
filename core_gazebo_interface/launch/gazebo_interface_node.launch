@@ -1,0 +1,5 @@
+<launch>
+  <node name="gazebo_interface_node" pkg="gazebo_interface_node" type="gazebo_interface_node" output="screen">
+    <param name="execute_target" type="double" value="20." />
+  </node>
+</launch>

@@ -1,0 +1,4 @@
+<?xml version="1.0"?>
+<launch>
+   <node name="isaac_gazebo_water" pkg="isaac_gazebo_interface" type="water_movement.py" output="screen"/>
+</launch>

@@ -1,0 +1,149 @@
+# YAML File for Pose Controller Parameters for PX4-Based UAVs
+
+# This file contains the parameters used for the real UAV. For gazebo-specific
+# parameters, please use pose_px4_gazebo_params.yaml file.
+
+# The current pose controller is constructed from a PID velocity loop 
+# nested inside a P position loop. Feel free to play with the I and D 
+#parameters for the position, but in theory they are supposed to be set 
+# to zero!
+
+# Another important note: Currently, the underlying PID controller (core_pid_controller) 
+# used in this package seems to have issues with the I term, resulting
+# in a very slow change of the terms when I is non-zero. For now, the I
+# terms should be kept at zero until the issue is fixed.
+
+# Finally, to see the possible range of parameters for the PID loops
+# (e.g., feed forward, constand, negative gains, etc.),please check 
+# the core_pid_controller package.
+
+# ---------------------------------------------------------------------
+
+# Target frame for the generated thrust (for PX4 it is usually "world" or "map")
+target_frame: "map"
+
+# Geofence settings
+# Note: the bounds are applied to the desired position in target_frame
+geofence: 
+  enable: false
+  x_min: -1.5
+  x_max: 2.2
+  y_min: -1.5
+  y_max: 1.5
+  z_min: 0.0
+  z_max: 2.5
+
+# Pose controller settings
+max_xy_vel: 3.0     # Maximum horizontal velocity (position loop output)
+hover_thrust: 0.52  #0.61  # Hover thrust [0 .. 1]
+hover_thrust_filter_gain: 0.95
+thrust_min: 0.1    # Minimum output thrust magnitude [0 .. 1]
+thrust_max: 0.7     # Maximum output thrust magnitude [0 .. 1]
+max_tilt: 30.0      # Maximum tilt for the output attitude
+
+# Position loop P gains and output (UAV velocity) limits
+x: 
+  P: 1.0
+  I: 0.3
+  integral_threshold: 0.1
+  min: -1.0
+  max: 1.0
+y: 
+  P: 1.0
+  I: 0.3
+  integral_threshold: 0.1
+  min: -1.0
+  max: 1.0
+z: 
+  P: 2.0
+  I: 0.4
+  integral_threshold: 10.0
+  min: -1.0
+  max: 3.0
+
+# Velocity loop PD gains and output (UAV thrust) limits
+vx:
+  P: 0.3
+  I: 0.05
+  D: 0.0
+  integral_threshold: 0.5
+  min: -0.5
+  max: 0.5
+
+vy:
+  P: 0.3
+  I: 0.05
+  D: 0.0
+  integral_threshold: 0.5
+  min: -0.5
+  max: 0.5
+
+vz:
+  P: 0.15
+  I: 0.05
+  D: 0.0
+  integral_threshold: 10.0
+  min: -1.0
+  max: 1.0
+
+yaw:
+  P: 1.0
+  I: 0.00
+  D: 0.0
+  integral_threshold: 0.5
+  min: -0.5
+  max: 0.5
+
+visual_vz_est:
+  P: 0.0
+  I: 0.0
+  D: 1.0
+  FF: 0.7
+  min: -2.0
+  max: 2.0
+
+visual_x: 
+  P: 1.0
+  I: 0.3
+  integral_threshold: 0.1
+  min: -6.0
+  max: 6.0
+
+visual_y: 
+  P: 1.0
+  I: 0.3
+  integral_threshold: 0.1
+  min: -6.0
+  max: 6.0
+
+visual_z: 
+  P: 1.6
+  I: 0.32
+  integral_threshold: 0.5
+  min: -1.0
+  max: 3.0
+
+visual_vx:
+  P: 0.3
+  I: 0.05
+  D: 0.0
+  integral_threshold: 0.5
+  min: -0.5
+  max: 0.5
+
+visual_vy:
+  P: 0.3
+  I: 0.05
+  D: 0.0
+  integral_threshold: 0.5
+  min: -0.5
+  max: 0.5
+
+visual_vz:
+  P: 0.15
+  I: 0.05
+  D: 0.0
+  integral_threshold: 0.5
+  min: -1.0
+  max: 1.0
+

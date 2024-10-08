@@ -1,0 +1,21 @@
+<package format="2">
+  <name>tictoc_profiler</name>
+  <version>0.0.0</version>
+  <description>
+      A simple wall-timer profiler.
+
+      Can output detailed runtime statistics (in csv-like format), a summary
+      table, or ROS messages.
+  </description>
+
+  <maintainer email="dimatura@cmu.edu">Daniel Maturana</maintainer>
+
+  <license>BSD</license>
+
+  <buildtool_depend>catkin</buildtool_depend>
+
+  <depend>message_generation</depend>
+  <depend>message_runtime</depend>
+  <depend>roscpp</depend>
+  <depend>std_msgs</depend>
+</package>

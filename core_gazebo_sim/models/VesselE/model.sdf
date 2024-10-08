@@ -1,0 +1,59 @@
+<?xml version='1.0' ?>
+<sdf version="1.6">
+  <model name="vessel_e">
+    <static>true</static>
+    <link name="link">
+      <inertial>
+        <mass>1500.0</mass>
+        <inertia>
+          <ixx>3625</ixx>
+          <ixy>0.0</ixy>
+          <ixz>0.0</ixz>
+          <iyy>25000</iyy>
+          <iyz>0.0</iyz>
+          <izz>27625</izz>
+        </inertia>
+      </inertial>
+      <visual name="visual">
+        <pose>0 0 0 0 0 -1.5708</pose>
+        <geometry>
+          <mesh>
+            <uri>model://VesselE/meshes/Boat05.dae</uri>
+          </mesh>
+        </geometry>
+        <material>
+          <diffuse>1.0 1.0 1.0</diffuse>
+          <specular>1.0 1.0 1.0</specular>
+          <script>
+            <uri>model://VesselE/materials/scripts</uri>
+            <uri>model://VesselE/materials/textures</uri>
+            <name>VesselE/tex</name>
+          </script>
+        </material>
+      </visual>
+      <collision name="collision">
+        <pose>0 0 0 0 0 -1.5708</pose>
+        <geometry>
+          <mesh>
+            <uri>model://VesselE/meshes/Boat05.dae</uri>
+          </mesh>
+        </geometry>
+      </collision>
+    </link>
+    <include>
+      <uri>model://aruco_visual_marker_7</uri>
+      <pose>-3 0 0.45 0 0 0</pose>
+    </include>
+    <joint name="tag_joint" type="fixed">
+      <child>vessel_e::link</child>
+      <parent>aruco_visual_marker_7::marker</parent>
+      <axis>
+        <xyz>0 0 1</xyz>
+        <limit>
+          <upper>0</upper>
+          <lower>0</lower>
+        </limit>
+      </axis>
+    </joint> 
+  </model>
+</sdf>

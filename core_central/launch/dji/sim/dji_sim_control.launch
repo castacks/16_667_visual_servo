@@ -1,0 +1,18 @@
+<launch>
+
+  <!-- control type should be velocity, pose, or attitude -->
+  <arg name="control_type" default="velocity" />
+
+  <!-- decide which control output to use -->
+  <node name="odometry_to_pose" pkg="core_pose_controller" type="odometry_to_pose_stamped.py" if="$(eval arg('control_type') == 'pose')">
+    <remap from="odometry" to="tracking_point" />
+    <remap from="pose_stamped" to="pose_command" />
+  </node>
+  <remap from="velocity_setpoint" to="velocity_command" if="$(eval arg('control_type') == 'velocity')"/>
+  <remap from="roll_pitch_yawrate_thrust_setpoint" to="roll_pitch_yawrate_thrust_command" if="$(eval arg('control_type') == 'attitude')"/>
+  
+  <!-- control -->
+  <include file="$(find core_pose_controller)/launch/pose_controller_dji.launch" pass_all_args="true" />
+  <include file="$(find core_velocity_controller)/launch/velocity_controller_dji.launch" pass_all_args="true" />
+  
+</launch>

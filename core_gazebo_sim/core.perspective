@@ -1,0 +1,228 @@
+{
+  "keys": {},
+  "groups": {
+    "mainwindow": {
+      "keys": {
+        "geometry": {
+          "repr(QByteArray.hex)": "QtCore.QByteArray(b'01d9d0cb00030000000007c80000006e00000b99000003a9000007c80000009300000b99000003a900000000000000000780000007c80000009300000b99000003a9')",
+          "type": "repr(QByteArray.hex)",
+          "pretty-print": "       n                         "
+        },
+        "state": {
+          "repr(QByteArray.hex)": "QtCore.QByteArray(b'000000ff00000000fd0000000100000003000003d2000002ebfc0100000002fc00000000000003d2000003d200fffffffc0200000003fb0000004c006200650068006100760069006f0072005f0074007200650065005f005f004200650068006100760069006f007200540072006500650050006c007500670069006e005f005f0031005f005f01000000160000008a0000008300fffffffb000000760063006f00720065005f007400720061006a006500630074006f00720079005f006c006900620072006100720079005f005f00460069007800650064005400720061006a006500630074006f0072007900530065006c006500630074006f00720050006c007500670069006e005f005f0031005f005f030000060d00000294000000ff000003ecfb00000030005f005f0044006f0063006b0057006900640067006500740043006f006e007400610069006e00650072005f005f003101000000a60000025b0000023b00fffffffc0000047b000002040000000000fffffffc0200000001fb00000072007200710074005f006200650068006100760069006f0072005f0074007200650065005f0063006f006d006d0061006e0064005f005f004200650068006100760069006f007200540072006500650043006f006d006d0061006e00640050006c007500670069006e005f005f0031005f005f03000005ce0000016e0000022b000003ec000003d20000000000000004000000040000000800000008fc00000001000000030000000100000036004d0069006e0069006d0069007a006500640044006f0063006b00570069006400670065007400730054006f006f006c0062006100720000000000ffffffff0000000000000000')",
+          "type": "repr(QByteArray.hex)",
+          "pretty-print": "                                                                                                                                                                                [ ;               rrqt_behavior_tree_command__BehaviorTreeCommandPlugin__1__                            6MinimizedDockWidgetsToolbar        "
+        }
+      },
+      "groups": {
+        "toolbar_areas": {
+          "keys": {
+            "MinimizedDockWidgetsToolbar": {
+              "repr": "8",
+              "type": "repr"
+            }
+          },
+          "groups": {}
+        }
+      }
+    },
+    "pluginmanager": {
+      "keys": {
+        "running-plugins": {
+          "repr": "{'__DockWidgetContainer': [1], 'behavior_tree/BehaviorTreePlugin': [1], 'core_trajectory_library/FixedTrajectorySelectorPlugin': [1], 'rqt_behavior_tree_command/BehaviorTreeCommandPlugin': [1]}",
+          "type": "repr"
+        }
+      },
+      "groups": {
+        "plugin____DockWidgetContainer__1": {
+          "keys": {},
+          "groups": {
+            "dock_widget": {
+              "keys": {
+                "dock_widget_title": {
+                  "repr": "'Container'",
+                  "type": "repr"
+                },
+                "dockable": {
+                  "repr": "True",
+                  "type": "repr"
+                },
+                "parent": {
+                  "repr": "None",
+                  "type": "repr"
+                }
+              },
+              "groups": {
+                "mainwindow": {
+                  "keys": {
+                    "geometry": {
+                      "repr(QByteArray.hex)": "QtCore.QByteArray(b'01d9d0cb000300000000000000000015000003d10000025a0000000000000000ffffffffffffffff000000000000000007800000000000000015000003d10000025a')",
+                      "type": "repr(QByteArray.hex)",
+                      "pretty-print": "           Z                    Z"
+                    },
+                    "state": {
+                      "repr(QByteArray.hex)": "QtCore.QByteArray(b'000000ff00000000fd0000000100000002000003d200000246fc0100000003fb0000004c006200650068006100760069006f0072005f0074007200650065005f005f004200650068006100760069006f007200540072006500650050006c007500670069006e005f005f0031005f005f03000002f60000007c00000882000002ddfc00000000000003d20000032c00fffffffc0100000002fb00000072007200710074005f006200650068006100760069006f0072005f0074007200650065005f0063006f006d006d0061006e0064005f005f004200650068006100760069006f007200540072006500650043006f006d006d0061006e00640050006c007500670069006e005f005f0031005f005f01000000000000011b000000eb00fffffffb000000760063006f00720065005f007400720061006a006500630074006f00720079005f006c006900620072006100720079005f005f00460069007800650064005400720061006a006500630074006f0072007900530065006c006500630074006f00720050006c007500670069006e005f005f0031005f005f0100000121000002b10000023b00fffffffb0000006c007400720061006a006500630074006f00720079005f006c006900620072006100720079005f005f00460069007800650064005400720061006a006500630074006f0072007900530065006c006500630074006f00720050006c007500670069006e005f005f0031005f005f010000033a000003450000000000000000000003d20000000000000004000000040000000800000008fc00000000')",
+                      "type": "repr(QByteArray.hex)",
+                      "pretty-print": "                 Lbehavior_tree__BehaviorTreePlugin__1__              ,                                                                                                                                        !   ;                                                            : E                  "
+                    }
+                  },
+                  "groups": {}
+                }
+              }
+            }
+          }
+        },
+        "plugin__basestation_gui_python__BasestationGuiPlugin__1": {
+          "keys": {},
+          "groups": {
+            "dock_widget__": {
+              "keys": {
+                "dock_widget_title": {
+                  "repr": "''",
+                  "type": "repr"
+                },
+                "dockable": {
+                  "repr": "'true'",
+                  "type": "repr"
+                },
+                "parent": {
+                  "repr": "None",
+                  "type": "repr"
+                }
+              },
+              "groups": {}
+            }
+          }
+        },
+        "plugin__behavior_tree__BehaviorTreePlugin__1": {
+          "keys": {},
+          "groups": {
+            "dock_widget__": {
+              "keys": {
+                "dock_widget_title": {
+                  "repr": "''",
+                  "type": "repr"
+                },
+                "dockable": {
+                  "repr": "True",
+                  "type": "repr"
+                },
+                "parent": {
+                  "repr": "None",
+                  "type": "repr"
+                }
+              },
+              "groups": {}
+            },
+            "plugin": {
+              "keys": {
+                "config_filename": {
+                  "repr": "'/home/guanqi/Documents/Airlab/lockheed_ws/src/behavior_tree/config/drone_tree.tree'",
+                  "type": "repr"
+                }
+              },
+              "groups": {}
+            }
+          }
+        },
+        "plugin__core_trajectory_library__FixedTrajectorySelectorPlugin__1": {
+          "keys": {},
+          "groups": {
+            "dock_widget__": {
+              "keys": {
+                "dock_widget_title": {
+                  "repr": "''",
+                  "type": "repr"
+                },
+                "dockable": {
+                  "repr": "True",
+                  "type": "repr"
+                },
+                "parent": {
+                  "repr": "1",
+                  "type": "repr"
+                }
+              },
+              "groups": {}
+            },
+            "plugin": {
+              "keys": {
+                "attribute_settings": {
+                  "repr": "{'ActivateWrench': {'activate_wrench': '0', 'force': '0'}, 'BoatLanding': {'activate_wrench': '0', 'force': '0', 'frame_id': 'world', 'height': '1', 'max_acceleration': '0.3', 'velocity': '3', 'width': '28'}, 'Circle': {'frame_id': 'world', 'radius': '5', 'velocity': '1'}, 'Figure8': {'frame_id': 'world', 'height': '1', 'length': '10', 'max_acceleration': '0.2', 'velocity': '4', 'width': '10'}, 'Line': {'frame_id': 'world', 'height': '0', 'max_acceleration': '0', 'velocity': '0', 'x': '0', 'y': '0'}, 'OpenloopThrust': {'activate': '0', 'x': '0', 'y': '0', 'z': '0'}, 'Point': {'frame_id': 'world', 'height': '3', 'max_acceleration': '0', 'velocity': '0', 'x': '-15', 'y': '-3'}, 'Racetrack': {'frame_id': 'world', 'height': '1', 'length': '30', 'max_acceleration': '0.2', 'velocity': '1', 'width': '15'}, 'ReturnHome': {'height': '0', 'max_acceleration': '0', 'velocity': '0'}, 'VisualLine': {'activate': '0'}, 'VisualPoint': {'activate': '0', 'height': '0', 'max_acceleration': '0', 'velocity': '0'}, 'WallPainting': {'activate_wrench': '0', 'force': '0', 'frame_id': 'world', 'height': '0', 'max_acceleration': '0', 'velocity': '0', 'width': '0'}}",
+                  "type": "repr"
+                },
+                "config_filename": {
+                  "repr": "'/home/visual_servo_ws/src/core_trajectory_library/config/fixed_trajectories.yaml'",
+                  "type": "repr"
+                }
+              },
+              "groups": {}
+            }
+          }
+        },
+        "plugin__rqt_behavior_tree_command__BehaviorTreeCommandPlugin__1": {
+          "keys": {},
+          "groups": {
+            "dock_widget__": {
+              "keys": {
+                "dock_widget_title": {
+                  "repr": "''",
+                  "type": "repr"
+                },
+                "dockable": {
+                  "repr": "True",
+                  "type": "repr"
+                },
+                "parent": {
+                  "repr": "1",
+                  "type": "repr"
+                }
+              },
+              "groups": {}
+            },
+            "plugin": {
+              "keys": {
+                "config_filename": {
+                  "repr": "'/home/visual_servo_ws/src/rqt_behavior_tree_command/config/gui_config.yaml'",
+                  "type": "repr"
+                }
+              },
+              "groups": {}
+            }
+          }
+        },
+        "plugin__trajectory_library__FixedTrajectorySelectorPlugin__1": {
+          "keys": {},
+          "groups": {
+            "dock_widget__": {
+              "keys": {
+                "dock_widget_title": {
+                  "repr": "''",
+                  "type": "repr"
+                },
+                "dockable": {
+                  "repr": "True",
+                  "type": "repr"
+                },
+                "parent": {
+                  "repr": "1",
+                  "type": "repr"
+                }
+              },
+              "groups": {}
+            },
+            "plugin": {
+              "keys": {
+                "attribute_settings": {
+                  "repr": "{'Circle': {'frame_id': 'world', 'radius': '0', 'velocity': '0'}, 'Figure8': {'frame_id': 'world', 'height': '1', 'length': '10', 'max_acceleration': '0.2', 'velocity': '1', 'width': '10'}, 'Racetrack': {'frame_id': 'world', 'height': '0', 'length': '0', 'max_acceleration': '0', 'velocity': '0', 'width': '0'}}",
+                  "type": "repr"
+                }
+              },
+              "groups": {}
+            }
+          }
+        }
+      }
+    }
+  }
+}

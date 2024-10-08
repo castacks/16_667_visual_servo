@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<launch>
+  
+  <!-- launch gazebo -->
+  <include file="$(find core_central)/launch/common/gazebo_world.launch">
+    <arg name="set_px4_paths" value="true" />
+  </include>
+
+  <!-- create a px4 drone -->
+  <include file="$(find core_central)/launch/px4/sim/px4_sim_drone.launch" pass_all_args="true">
+    <arg name="robot_name" value="uav1" />
+    <arg name="ID" value="0"/>
+    
+    <arg name="x" value="-3.1" />
+    <arg name="y" value="-15" />
+    <arg name="z" value="1.4" />
+    
+    <arg name="drone_interface" value="PX4TiltedHexInterface" />
+    <arg name="map_representation" value="PointCloudMapRepresentation" />
+  </include>
+  
+</launch>

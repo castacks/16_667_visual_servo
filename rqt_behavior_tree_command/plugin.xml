@@ -1,0 +1,15 @@
+<library path="src">
+  <class name="BehaviorTreeCommandPlugin" type="rqt_behavior_tree_command.rqt_behavior_tree_command.BehaviorTreeCommandPlugin" base_class_type="rqt_gui_py::Plugin">
+    <description>
+      An interface for publishing conditions in a behavior tree.
+    </description>
+    <qtgui>
+      <group>
+        <label>Behavior Tree Command</label>
+      </group>
+      <label>Behavior Tree Command</label>
+      <icon type="theme">system-help</icon>
+      <statustip>Behavior tree command interface.</statustip>
+    </qtgui>
+  </class>
+</library>

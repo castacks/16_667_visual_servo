@@ -1,0 +1,37 @@
+<?xml version="1.0"?>
+<launch>
+
+  <!-- launch gazebo -->
+  <include file="$(find core_central)/launch/common/gazebo_world.launch">
+    <arg name="set_px4_paths" value="true" />
+  </include>
+
+  
+  <include file="$(find core_central)/launch/px4/sim/px4_sim_drone.launch" pass_all_args="true">
+    <arg name="robot_name" value="uav1" />
+    <arg name="ID" value="0"/>
+    
+    <arg name="x" value="0" />
+    <arg name="y" value="0" />
+    <arg name="z" value="1" />
+  </include>
+
+  <include file="$(find core_central)/launch/px4/sim/px4_sim_drone.launch" pass_all_args="true">
+    <arg name="robot_name" value="uav2" />
+    <arg name="ID" value="1"/>
+    
+    <arg name="x" value="1" />
+    <arg name="y" value="0" />
+    <arg name="z" value="1" />
+  </include>
+
+  <include file="$(find core_central)/launch/px4/sim/px4_sim_drone.launch" pass_all_args="true">
+    <arg name="robot_name" value="uav3" />
+    <arg name="ID" value="2"/>
+    
+    <arg name="x" value="2" />
+    <arg name="y" value="0" />
+    <arg name="z" value="1" />
+  </include>
+
+</launch>

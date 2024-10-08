@@ -1,0 +1,13 @@
+session_name: Full System
+windows:
+  - window_name: Base Station
+    panes:
+      - shell_command:
+        - export ROS_MASTER_URI=http://uav2pc:11311
+        - cd ~/subt/core_subt_ws
+        - source devel/setup.bash
+        - mon launch core_central uav_base_station.launch
+  - window_name: Base Station
+    panes:
+      - shell_command:
+        - ssh -t uav2@uav2pc "sh -c 'tmuxp load ~/subt/core_ws/src/core_central/scripts/uav_no_tilt.yaml' "

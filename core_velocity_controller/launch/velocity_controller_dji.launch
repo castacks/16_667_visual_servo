@@ -1,0 +1,44 @@
+<launch>
+  
+  <arg name="robot_name" default="uav1" />
+  
+  <node name="velocity_controller" pkg="core_velocity_controller" type="velocity_controller">
+    <param name="execute_target" value="50." />
+    <param name="target_frame" value="$(arg robot_name)/base_link_stabilized" />
+    
+    <!-- vx -->
+    <param name="vx/P" type="double" value="0.1" />
+    <param name="vx/I" type="double" value="0" />
+    <param name="vx/D" type="double" value="0" />
+    <param name="vx/min" type="double" value="-20" />
+    <param name="vx/max" type="double" value="20" />
+    
+    <!-- vy -->
+    <param name="vy/P" type="double" value="-0.1" />
+    <param name="vy/I" type="double" value="0" />
+    <param name="vy/D" type="double" value="0" />
+    <param name="vy/min" type="double" value="-20" />
+    <param name="vy/max" type="double" value="20" />
+    
+    <!-- vz -->
+    <param name="vz/P" type="double" value="5.0" />
+    <param name="vz/I" type="double" value="1.0" />
+    <param name="vz/D" type="double" value="0" />
+    <param name="vz/use_negative_gains" type="bool" value="false" />
+    <param name="vz/neg_P" type="double" value="-8" />
+    <param name="vz/neg_I" type="double" value="0" />
+    <param name="vz/neg_D" type="double" value="0" />
+    <param name="vz/neg_FF" type="double" value="0" />
+    <param name="vz/constant" type="double" value="25." /> <!-- The thrust will start at this value to save time waiting for the integrator to wind up. -->
+    <param name="vz/min" type="double" value="0.01" />
+    <param name="vz/max" type="double" value="99.9" />
+    
+    <!-- yawrate -->
+    <param name="yawrate/P" type="double" value="1" />
+    <param name="yawrate/I" type="double" value="0" />
+    <param name="yawrate/min" type="double" value="-20" />
+    <param name="yawrate/max" type="double" value="20" />
+  </node>
+  
+  
+</launch>

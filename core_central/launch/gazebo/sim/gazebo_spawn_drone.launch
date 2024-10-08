@@ -1,0 +1,17 @@
+<launch>
+  
+  <arg name="robot_name" default="uav1" />
+
+  <arg name="x" default="0" />
+  <arg name="y" default="0" />
+  <arg name="z" default="0.5" />
+  
+  <param name="/$(arg robot_name)/robot_description" command="$(find xacro)/xacro.py '$(find core_gazebo_sim)/urdf/uav.xacro' robot_name:=$(arg robot_name)" />
+  
+  <!-- spawn simulated drone -->
+  <node name="spawn_drone" pkg="gazebo_ros" type="spawn_model" args="-param /$(arg robot_name)/robot_description -urdf -model $(arg robot_name) -x $(arg x) -y $(arg y) -z $(arg z)"/>
+  <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher">
+    <param name="tf_prefix" value="/$(arg robot_name)" />
+  </node>
+
+</launch>

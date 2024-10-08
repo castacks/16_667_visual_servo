@@ -1,0 +1,7 @@
+<launch>
+
+  <node name="command_generator" pkg="rqt_behavior_tree_command" type="command_generator.py">
+    <param name="config_filename" value="$(find rqt_behavior_tree_command)/config/gui_config.yaml" />
+  </node>
+  
+</launch>

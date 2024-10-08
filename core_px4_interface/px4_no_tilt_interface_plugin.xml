@@ -1,0 +1,5 @@
+<library path="lib/libpx4_no_tilt_interface">
+  <class type="PX4NoTiltInterface" base_class_type="DroneInterface">
+    <description>PX4 no tilt hex plugin.</description>
+  </class>
+</library>

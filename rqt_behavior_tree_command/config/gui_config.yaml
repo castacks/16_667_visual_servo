@@ -1,0 +1,14 @@
+groups:
+  - Commands:
+    - Takeoff:
+        condition_name: Takeoff Commanded
+    - Land:
+        condition_name: Land Commanded
+    - Publish Target:
+        condition_name: Fixed Trajectory Commanded
+    - Offboard:
+        condition_name: Offboard Commanded
+    - Arm:
+        condition_name: Arm Commanded
+    - Disarm:
+        condition_name: Disarm Commanded

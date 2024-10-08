@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<launch>
+
+  <arg name="robot_name" default="uav1" />
+  
+  <node name="odometry_transform" pkg="core_odometry_transform" type="odometry_transform">
+    <param name="execute_target" value="1" />
+    
+    <param name="convert_odometry_to_transform" type="bool" value="true" />
+    <param name="convert_odometry_to_stabilized_transform" type="bool" value="true" />
+    <!-- 0: No output odometry
+	 1: Transform the intput odometry to the new_frame_id and new_child_frame_id
+         2: Overwrite the input odometry frame_id and child_frame_id with new_frame_id and new_child_frame_id-->
+    <param name="odometry_output_type" type="int" value="2" />
+    <param name="restamp_now" type="bool" value="true" />
+    
+    <param name="transform_name" type="string" value="$(arg robot_name)/base_link" />
+    <param name="new_frame_id" type="string" value="$(arg robot_name)/map" />
+    <param name="new_child_frame_id" type="string" value="$(arg robot_name)/base_link" />
+    <!-- Rotate pose because of 180 IMU rotation in hexa_x_tilt model -->
+    <param name="rotate_orientation_x" type="double" value="0" />
+    <param name="rotate_orientation_y" type="double" value="0" />
+    <param name="rotate_orientation_z" type="double" value="1" />
+    <param name="rotate_orientation_w" type="double" value="0" />
+    <param name="rotate_orientation" type="bool" value="true" />
+
+    
+    <remap from="input_odometry" to="ground_truth/state" />
+  </node>
+  
+</launch>

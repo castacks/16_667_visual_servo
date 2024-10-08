@@ -1,0 +1,40 @@
+<?xml version="1.0"?>
+<launch>
+
+  <!-- Check if the paths should be modified for the px4 sim to work. -->
+  <arg name="set_px4_paths" default="false" />
+  <env name="ROS_PACKAGE_PATH"
+       value="$(optenv ROS_PACKAGE_PATH):$(find px4)/Tools/sitl_gazebo"
+       if="$(arg set_px4_paths)"/>
+  <env name="GAZEBO_PLUGIN_PATH"
+       value="$(optenv GAZEBO_PLUGIN_PATH):$(find px4)/build/px4_sitl_default/build_gazebo"
+       if="$(arg set_px4_paths)"/>
+  <env name="GAZEBO_MODEL_PATH"
+       value="$(optenv GAZEBO_MODEL_PATH):$(find px4)/launch/models:$(find px4)/Tools/sitl_gazebo/models:$(find core_gazebo_sim)/models"
+       if="$(arg set_px4_paths)"/>
+
+  <env name="LD_LIBRARY_PATH"
+       value="$(optenv LD_LIBRARY_PATH):$(find px4)/build/px4_sitl_default/build_gazebo"
+       if="$(arg set_px4_paths)"/>
+  
+  <!-- gazebo config -->
+  <!-- <arg name="world" default="$(find core_gazebo_sim)/worlds/empty.world"/> -->
+  <!-- <arg name="world" default="$(find px4)/Tools/sitl_gazebo/worlds/grass_wall.world"/> -->
+  <!-- <arg name="world" default="$(find core_gazebo_sim)/worlds/empty_world_ships_gazebo.world"/> -->
+  <arg name="world" default="$(find core_gazebo_sim)/worlds/empty_world_ship_gazebo.world"/>
+  <arg name="gui" default="true"/>
+  <arg name="debug" default="false"/>
+  <arg name="verbose" default="false"/>
+  <arg name="paused" default="false"/>
+  <arg name="respawn_gazebo" default="false"/>
+  
+  <include file="$(find gazebo_ros)/launch/empty_world.launch">
+    <arg name="world_name" value="$(arg world)"/>
+    <arg name="gui" value="$(arg gui)"/>
+    <arg name="debug" value="$(arg debug)"/>
+    <arg name="verbose" value="$(arg verbose)"/>
+    <arg name="paused" value="$(arg paused)"/>
+    <arg name="respawn_gazebo" value="$(arg respawn_gazebo)"/>
+  </include>
+  
+</launch>

@@ -1,0 +1,25 @@
+<?xml version='1.0' ?>
+<sdf version="1.5">
+  <model name="vessel_e_tag">
+    <include>
+      <uri>model://Vessel_e</uri>
+      <pose>-3 0 0.45 0 0 0</pose>
+    </include>
+
+    <include>
+      <uri>model://aruco_visual_marker_7</uri>
+      <pose>-3 0 0.45 0 0 0</pose>
+    </include>
+    <joint name="tag_joint" type="fixed">
+      <child>vessel_e::link</child>
+      <parent>aruco_visual_marker_7::marker</parent>
+      <axis>
+        <xyz>0 0 1</xyz>
+        <limit>
+          <upper>0</upper>
+          <lower>0</lower>
+        </limit>
+      </axis>
+    </joint>
+  </model>
+</sdf>

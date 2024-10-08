@@ -1,0 +1,18 @@
+<launch>
+
+  <!-- <remap from="odometry" to="/mavros/local_position/odom" /> -->
+
+  <node name="pose_controller" pkg="core_pose_controller" type="pose_controller" output="screen">
+
+    <param name="execute_target" value="50." />
+    
+    <rosparam file="$(find core_pose_controller)/config/pose_px4_params.yaml" command="load" />
+
+    <!-- Add pose controller parameter overrides here (or modify the pose_px4_params.yaml file) -->
+
+    <!-- End of overriden parameters -->
+
+  </node>
+
+
+</launch>

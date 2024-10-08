@@ -1,0 +1,7 @@
+<launch>
+  <node name="gazebo_interface_node" pkg="gazebo_interface_node" type="gazebo_interface_node" output="screen">
+    <param name="execute_target" type="double" value="20.0" />
+    <param name="default_mpc_xy_cruise" type="double" value="5.0" />
+    <param name="default_mpc_vel_manual" type="double" value="10.0" />
+  </node>
+</launch>
