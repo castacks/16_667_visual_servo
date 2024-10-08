@@ -246,16 +246,13 @@ class VisualServo:
         self.publish_position_pbvs(x_i, y_i, z_i)
 
     def ibvs_control(self, x, y, z):
-        x_gain = 0.0008
-        y_gain = 0.0008
-        z_gain = 0.8
 
         # TODO: Compute error vector in image plane (2x1 e matrix)
         
         # TODO: Compute interaction matrix L (Only positional part of the interaction 
         #       matrix for this assignment [3*2 matrix])
 
-        # TODO: Compute the pseudo-inverse of the interaction matrix ane v_c using this
+        # TODO: Compute the pseudo-inverse of the interaction matrix and v_c using this
         #       pseudo-inverse and lambda_gain (needs to be tuned).
         
         v_c = np.zeros(3)
